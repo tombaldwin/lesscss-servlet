@@ -43,7 +43,7 @@ public class LessResource extends StyleResource {
 	}
 
 	public byte[] getContent() throws LessException, IOException {
-		if (content == null || (!cache && lastModified < getLastModified())) {
+		if (content == null || (!cache || lastModified < getLastModified())) {
 			logger.debug("Not using cache.");
 			if (engine != null) {
 				logger.debug("LessEngine available, compiling.");
